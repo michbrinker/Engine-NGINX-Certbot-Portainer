@@ -31,7 +31,7 @@ duckDNS_create() {
               duckdns=false
               uploaded_jks=false
               chosen_jks_file=false
-              create_docker_image
+              create_docker_images
             return 1
         elif [[ -z "$jks_duckdns_domain" ]]; then
             whiptail --title "Error" --msgbox "Domain input is required. Please enter a valid DuckDNS domain." 8 $DIALOG_WIDTH
@@ -50,7 +50,7 @@ duckDNS_create() {
               duckdns=false
               uploaded_jks=false
               chosen_jks_file=false
-              create_docker_image
+              create_docker_images
             return 1
         elif [[ -z "$duckdns_token" ]]; then
             whiptail --title "Error" --msgbox "DuckDNS token is required. Please enter a valid token." 8 $DIALOG_WIDTH
@@ -76,7 +76,7 @@ duckDNS_create() {
               duckdns=false
               uploaded_jks=false
               chosen_jks_file=false
-              create_docker_image
+              create_docker_images
             return 1
         fi
     return 0

@@ -16,7 +16,7 @@ upload_jks() {
           duckdns=false
           uploaded_jks=false
           chosen_jks_file=false
-          create_docker_image          
+          create_docker_images          
           return 1
         fi
       else
@@ -42,7 +42,7 @@ upload_jks() {
                 duckdns=false
                 uploaded_jks=false
                 chosen_jks_file=false
-                create_docker_image
+                create_docker_images
                 return 1
               fi
             fi
@@ -54,7 +54,7 @@ upload_jks() {
             duckdns=false
             uploaded_jks=false
             chosen_jks_file=false
-            create_docker_image
+            create_docker_images
             return 1
           fi
         fi
@@ -70,7 +70,7 @@ upload_jks() {
       duckdns=false
       uploaded_jks=false
       chosen_jks_file=false
-      create_docker_image
+      create_docker_images
       return 1
     fi
   done

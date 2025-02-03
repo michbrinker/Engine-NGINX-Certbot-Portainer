@@ -10,7 +10,7 @@ check_for_jks() {
     duckdns=false
     uploaded_jks=false
     chosen_jks_file=false
-    create_docker_image
+    create_docker_images
     return 1
   fi
 
@@ -61,7 +61,7 @@ check_for_jks() {
               duckdns=false
               uploaded_jks=false
               chosen_jks_file=false
-              create_docker_image
+              create_docker_images
             return 1
           fi
         fi
