@@ -1,17 +1,16 @@
 # Docker Arch (amd64, arm32v6, ...)
-ARG TARGET_ARCH
+ARG TARGET_ARCH="amd64"
 FROM ${TARGET_ARCH}/python:3.8-alpine3.12
 
 # Qemu Arch (x86_64, arm, ...)
-ARG QEMU_ARCH
+ARG QEMU_ARCH="x86_64"
 ENV QEMU_ARCH=${QEMU_ARCH}
 COPY qemu-${QEMU_ARCH}-static /usr/bin/
 
-ARG CERTBOT_VERSION
+ARG CERTBOT_VERSION="certbot"
 ENV CERTBOT_VERSION=${CERTBOT_VERSION}
 
 ENTRYPOINT [ "certbot" ]
-EXPOSE 80 443
 VOLUME /etc/letsencrypt /var/lib/letsencrypt
 WORKDIR /opt/certbot
 

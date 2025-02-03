@@ -1,3 +1,15 @@
-service:
+services:
   certbot:
+    container_name: certbot
+    build: ./certbot .
   nginx:
+    container_name: nginx
+    build: ./ngnix .
+    ports:
+      - 80:80
+      - 444:443
+    volumes:
+      - /home/ubuntu/nginx/config:/etc/nginx
+      - /home/ubuntu/nginx/www:/var/www/html
+      - /home/ubuntu/ngnix/ssl:/etc/nginx/ssl
+  wowza:
