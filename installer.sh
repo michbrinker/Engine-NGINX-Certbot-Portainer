@@ -45,36 +45,36 @@ CLEANUP_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Port
 CREATE_HTML_INSTRUCTIONS_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/create_html_instructions.sh"
 
 # Download the Functions Scripts
-curl -o "$SCRIPT_DIR/$encp/dependencies.sh" "$DEPENDENCIES_URL" > /dev/null 2>&1
-curl -o "$SCRIPT_DIR/$encp/fetch_and_set_wowza_versions.sh" "$FETCH_AND_SET_WOWZA_VERSIONS_URL" > /dev/null 2>&1
-curl -o "$SCRIPT_DIR/$encp/check_for_jks.sh" "$CHECK_FOR_JKS_URL" > /dev/null 2>&1
-curl -o "$SCRIPT_DIR/$encp/upload_jks.sh" "$UPLOAD_JKS_URL" > /dev/null 2>&1
-curl -o "$SCRIPT_DIR/$encp/duckDNS_create.sh" "$DUCKDNS_CREATE_URL" > /dev/null 2>&1
-curl -o "$SCRIPT_DIR/$encp/ssl_config.sh" "$SSL_CONFIG_URL" > /dev/null 2>&1
-curl -o "$SCRIPT_DIR/$encp/create_docker_images.sh" "$CREATE_DOCKER_IMAGES_URL" > /dev/null 2>&1
-curl -o "$SCRIPT_DIR/$encp/credentials.sh" "$CREDENTIALS_URL" > /dev/null 2>&1
-curl -o "$SCRIPT_DIR/$encp/compose.sh" "$COMPOSE_URL" > /dev/null 2>&1
-curl -o "$SCRIPT_DIR/$encp/convert_jks_to_pem.sh" "$CONVERT_JKS_TO_PEM_URL" > /dev/null 2>&1
-curl -o "$SCRIPT_DIR/$encp/convert_pem_to_jks.sh" "$CONVERT_PEM_TO_JKS_URL" > /dev/null 2>&1
-curl -o "$SCRIPT_DIR/$encp/swagger.sh" "$SWAGGER" > /dev/null 2>&1
-curl -o "$SCRIPT_DIR/$encp/create_html_instructions.sh" "$CREATE_HTML_INSTRUCTIONS_URL" > /dev/null 2>&1
-curl -o "$SCRIPT_DIR/$encp/cleanup.sh" "$CLEANUPT_URL" > /dev/null 2>&1
+curl -o "$encp/dependencies.sh" "$DEPENDENCIES_URL" > /dev/null 2>&1
+curl -o "$encp/fetch_and_set_wowza_versions.sh" "$FETCH_AND_SET_WOWZA_VERSIONS_URL" > /dev/null 2>&1
+curl -o "$encp/check_for_jks.sh" "$CHECK_FOR_JKS_URL" > /dev/null 2>&1
+curl -o "$encp/upload_jks.sh" "$UPLOAD_JKS_URL" > /dev/null 2>&1
+curl -o "$encp/duckDNS_create.sh" "$DUCKDNS_CREATE_URL" > /dev/null 2>&1
+curl -o "$encp/ssl_config.sh" "$SSL_CONFIG_URL" > /dev/null 2>&1
+curl -o "$encp/create_docker_images.sh" "$CREATE_DOCKER_IMAGES_URL" > /dev/null 2>&1
+curl -o "$encp/credentials.sh" "$CREDENTIALS_URL" > /dev/null 2>&1
+curl -o "$encp/compose.sh" "$COMPOSE_URL" > /dev/null 2>&1
+curl -o "$encp/convert_jks_to_pem.sh" "$CONVERT_JKS_TO_PEM_URL" > /dev/null 2>&1
+curl -o "$encp/convert_pem_to_jks.sh" "$CONVERT_PEM_TO_JKS_URL" > /dev/null 2>&1
+curl -o "$encp/swagger.sh" "$SWAGGER" > /dev/null 2>&1
+curl -o "$encp/create_html_instructions.sh" "$CREATE_HTML_INSTRUCTIONS_URL" > /dev/null 2>&1
+curl -o "$encp/cleanup.sh" "$CLEANUPT_URL" > /dev/null 2>&1
 
 # Source for the Functions Scripts
-source "$SCRIPT_DIR/$encp/dependencies.sh"
-source "$SCRIPT_DIR/$encp/fetch_and_set_wowza_versions.sh"
-source "$SCRIPT_DIR/$encp/check_for_jks.sh"
-source "$SCRIPT_DIR/$encp/upload_jks.sh"
-source "$SCRIPT_DIR/$encp/duckDNS_create.sh"
-source "$SCRIPT_DIR/$encp/ssl_config.sh"
-source "$SCRIPT_DIR/$encp/create_docker_images.sh"
-source "$SCRIPT_DIR/$encp/credentials.sh"
-source "$SCRIPT_DIR/$encp/compose.sh"
-source "$SCRIPT_DIR/$encp/convert_jks_to_pem.sh"
-source "$SCRIPT_DIR/$encp/convert_pem_to_jks.sh"
-source "$SCRIPT_DIR/$encp/swagger.sh"
-source "$SCRIPT_DIR/$encp/create_html_instructions.sh"
-source "$SCRIPT_DIR/$encp/cleanup.sh"
+source "$encp/dependencies.sh"
+source "$encp/fetch_and_set_wowza_versions.sh"
+source "$encp/check_for_jks.sh"
+source "$encp/upload_jks.sh"
+source "$encp/duckDNS_create.sh"
+source "$encp/ssl_config.sh"
+source "$encp/create_docker_images.sh"
+source "$encp/credentials.sh"
+source "$encp/compose.sh"
+source "$encp/convert_jks_to_pem.sh"
+source "$encp/convert_pem_to_jks.sh"
+source "$encp/swagger.sh"
+source "$encp/create_html_instructions.sh"
+source "$encp/cleanup.sh"
 
 dependencies
 fetch_and_set_wowza_versions
