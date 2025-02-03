@@ -39,7 +39,7 @@ CREATE_DOCKER_IMAGES_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX
 CREDENTIALS_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/credentials.sh"
 COMPOSE_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/compose.sh"
 CONVERT_JKS_TO_PEM_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/convert_jks_to_pem.sh"
-CONVERT_PEM_TO_JKS_URK="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/convert_pem_to_jks.sh"
+CONVERT_PEM_TO_JKS_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/convert_pem_to_jks.sh"
 SWAGGER="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/swagger.sh"
 CLEANUP_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/cleanup.sh"
 CREATE_HTML_INSTRUCTIONS_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/create_html_instructions.sh"
@@ -58,7 +58,7 @@ curl -o "$encp/convert_jks_to_pem.sh" "$CONVERT_JKS_TO_PEM_URL" > /dev/null 2>&1
 curl -o "$encp/convert_pem_to_jks.sh" "$CONVERT_PEM_TO_JKS_URL" > /dev/null 2>&1
 curl -o "$encp/swagger.sh" "$SWAGGER" > /dev/null 2>&1
 curl -o "$encp/create_html_instructions.sh" "$CREATE_HTML_INSTRUCTIONS_URL" > /dev/null 2>&1
-curl -o "$encp/cleanup.sh" "$CLEANUPT_URL" > /dev/null 2>&1
+curl -o "$encp/cleanup.sh" "$CLEANUP_URL" > /dev/null 2>&1
 
 # Source for the Functions Scripts
 source "$encp/dependencies.sh"

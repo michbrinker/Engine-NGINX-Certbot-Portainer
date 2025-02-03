@@ -68,7 +68,7 @@ fetch_and_set_wowza_versions() {
     mkdir -p "$container_dir"
     # Define the nginx directory
     nginx="$container_dir/nginx"
-    mkdir -p -m 777 "$swag" || {
+    mkdir -p -m 777 "$nginx" || {
         echo "Error: Failed to create container directory"
         exit 1
     }
