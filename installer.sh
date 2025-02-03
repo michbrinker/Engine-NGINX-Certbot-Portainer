@@ -29,13 +29,13 @@ upload="$encp/upload"
 mkdir -p -m 777 "$upload"
 
 # URL of the Functions Scripts
-DEPENDENCIES_URL="https://raw.githubusercontent.com/chpalex/DockerEngineInstaller/refs/heads/main/install_dependencies.sh"
-FETCH_AND_SET_WOWZA_VERSIONS_URL="https://raw.githubusercontent.com/chpalex/DockerEngineInstaller/refs/heads/main/fetch_and_set_wowza_versions.sh"
-CHECK_FOR_JKS_URL="https://raw.githubusercontent.com/chpalex/DockerEngineInstaller/refs/heads/main/jks_functions.sh"
-UPLOAD_JKS_URL=
-SSL_CONFIG_URL=
-DUCKDNS_CREATE_RUL=
-CREATE_DOCKER_IMAGES_URL="https://raw.githubusercontent.com/chpalex/DockerEngineInstaller/refs/heads/main/create_docker_image.sh"
+DEPENDENCIES_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/dependencies.sh"
+FETCH_AND_SET_WOWZA_VERSIONS_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/fetch_and_set_wowza_versions.sh"
+CHECK_FOR_JKS_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/check_for_jks.sh"
+UPLOAD_JKS_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/upload_jks.sh"
+DUCKDNS_CREATE_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/duckDNS_create.sh"
+SSL_CONFIG_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/ssl_config.sh"
+CREATE_DOCKER_IMAGES_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/create_docker_images.sh"
 CREDENTIALS_URL="https://raw.githubusercontent.com/chpalex/DockerEngineInstaller/refs/heads/main/prompt_credentials.sh"
 COMPOSE_URL="https://raw.githubusercontent.com/chpalex/DockerEngineInstaller/refs/heads/main/create_and_run_docker_compose.sh"
 CONVERT_JKS_TO_PEM_URL=
