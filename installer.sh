@@ -98,7 +98,10 @@ sudo ln -sf /var/lib/docker/volumes/${stack_name}_engine/_data/lib /$container_d
 if $duckdns; then
   convert_pem_to_jks "$jks_domain" "$jks_password" "$jks_password"
 fi
-if ! $duckdns; then
+
+echo $duckdns
+
+if !$duckdns; then
   convert_jks_to_pem
 fi
 
