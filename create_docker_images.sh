@@ -202,12 +202,13 @@ RUN apk add --no-cache \
 COPY config/nginx.conf /etc/nginx/nginx.conf
 # Configure nginx - default server
 COPY config/conf.d /etc/nginx/conf.d/
+COPY config/mime.types /etc/ngnix/mime.types
 
 # Configure PHP-FPM
 ENV PHP_INI_DIR=/etc/php84
 COPY config/fpm-pool.conf ${PHP_INI_DIR}/php-fpm.d/www.conf
 COPY config/php.ini ${PHP_INI_DIR}/conf.d/custom.ini
-
+ 
 # Configure supervisord
 COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
