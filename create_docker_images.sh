@@ -153,6 +153,8 @@ EOL
     echo "RUN sed -i 's|<DocumentationServerEnable>false</DocumentationServerEnable>|<DocumentationServerEnable>true</DocumentationServerEnable>|' /usr/local/WowzaStreamingEngine/conf/Server.xml" >> Dockerfile
   fi
 
+  sudo docker build -t wowza_engine:$engine_version .
+
 # Created dockerfile for NGINX
   # Change directory to nginx
   mkdir -p -m 777 "$container_dir/nginx" && cd "$container_dir/nginx"
@@ -171,7 +173,7 @@ EOL
   sed -i '/ # listen 443 ssl;/c listen 443 ssl;' $container_dir/nginx/config/conf.d/default.conf
   sed -i '7,8 s/^\s*#\s*//' $container_dir/nginx/config/conf.d/default.conf
   fi
-  
+    
     # Create a Dockerfile for WSE
   cat <<EOL > Dockerfile
 FROM alpine:latest
@@ -218,4 +220,7 @@ COPY src/ /var/www/html/
 # Let supervisord start nginx & php-fpm
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
 EOL
+
+sudo docker build -t nginx:$engine_version .
+
 }
