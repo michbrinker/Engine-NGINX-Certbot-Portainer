@@ -71,6 +71,8 @@ RUN rm tuning.sh
 EOL
 
   if [ -f "$upload/tomcat.properties" ]; then
+    echo "RUN pwd" >> Dockerfile
+    echo "RUN ls -la $upload" >> Dockerfile
     echo "COPY $upload/tomcat.properties /usr/local/WowzaStreamingEngine/manager/conf/" >> Dockerfile
     echo "RUN chown wowza:wowza /usr/local/WowzaStreamingEngine/manager/conf/tomcat.properties" >> Dockerfile
 
