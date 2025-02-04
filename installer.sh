@@ -83,6 +83,11 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 check_for_jks # runs upload_jks, ssl_config, duckDNS_create
+
+if ! $duckdns && $use_ssl; then
+  convert_jks_to_pem
+fi
+
 create_docker_images
 credentials 
 compose
@@ -97,10 +102,6 @@ sudo ln -sf /var/lib/docker/volumes/${stack_name}_engine/_data/lib /$container_d
 
 if $duckdns && $use_ssl; then
   convert_pem_to_jks "$jks_domain" "$jks_password" "$jks_password"
-fi
-
-if ! $duckdns && $use_ssl; then
-  convert_jks_to_pem
 fi
 
 swagger
