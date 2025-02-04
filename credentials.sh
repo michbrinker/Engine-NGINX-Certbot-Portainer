@@ -72,7 +72,6 @@ EMAIL=${SSL_EMAIL}
 EOL
 }
 
-prompt_credentials
 check_env_prompt_credentials
 
 }
