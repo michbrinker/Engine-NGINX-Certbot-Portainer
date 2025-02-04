@@ -3,7 +3,7 @@
 create_docker_images() {
   # Create dockerfile for Wowza Engine
   # Change directory to wowza
-  mkdir -p -m 777 "$encp/$container_dir/wowza" && cd "$encp/$container_dir/wowza"
+  mkdir -p -m 777 "$container_dir/wowza" && cd "$container_dir/wowza"
   
   # Create a Dockerfile for WSE
   cat <<EOL > Dockerfile
@@ -155,7 +155,7 @@ EOL
 
 # Created dockerfile for NGINX
   # Change directory to nginx
-  mkdir -p -m 777 "$encp/$container_dir/nginx" && cd "$encp/$container_dir/nginx"
+  mkdir -p -m 777 "$container_dir/nginx" && cd "$container_dir/nginx"
   # Copy dependency files from github
   wget -P config/conf.d https://github.com/chpalex/Engine-nginx-Certbot-Portainer/blob/master/nginx/config/conf.d/default.conf
   wget -P config https://github.com/chpalex/Engine-nginx-Certbot-Portainer/blob/master/nginx/config/fpm-pool.conf
