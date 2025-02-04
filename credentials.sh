@@ -2,7 +2,7 @@
 #### Check for Engine credentials and create .env file
 credentials () {
 
-    prompt_credentials() {
+  prompt_credentials() {
   # Get user name, password and license key
   WSE_MGR_USER=$(whiptail --inputbox "Provide Wowza username:" 8 78 "$1" --title "Wowza Credentials" 3>&1 1>&2 2>&3)
   if [ $? -ne 0 ] || [ -z "$WSE_MGR_USER" ]; then
@@ -71,5 +71,8 @@ URL=${jks_domain}
 EMAIL=${SSL_EMAIL}
 EOL
 }
+
+prompt_credentials
+check_env_prompt_credentials
 
 }
