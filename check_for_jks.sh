@@ -2,6 +2,9 @@
 # Function to check if SSL is going to be used, then scan for .jks file, offer to choose an available one
 check_for_jks() {
     use_ssl=false
+    duckdns=false
+    uploaded_jks=false
+    chosen_jks_file=false
   # Step 1: Ask user if they want to use SSL
   if whiptail --title "SSL Configuration" --yesno "Do you want to use SSL? Note: The installer can assist in getting a free domain and SSL. Non SSL config is currently broken for Webserver" 10 60; then
     export use_ssl=true
