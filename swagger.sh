@@ -1,6 +1,6 @@
 ####
 # Function to install Swagger UI
-install_swagger() {
+swagger() {
   # Download Swagger UI from Wowza
   cd "$container_dir/nginx/www"
   wget https://www.wowza.com/downloads/forums/restapidocumentation/RESTAPIDocumentationWebpage.zip

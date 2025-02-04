@@ -101,7 +101,7 @@ fi
 
 echo $duckdns
 
-if !$duckdns; then
+if ! $duckdns; then
   convert_jks_to_pem
 fi
 
