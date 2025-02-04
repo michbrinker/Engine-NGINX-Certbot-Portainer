@@ -162,6 +162,7 @@ EOL
   wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/6b7a029919d13500d285c47bf1c3d5aac4485df5/ngnix/config/nginx.conf > /dev/null 2>&1
   wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/6b7a029919d13500d285c47bf1c3d5aac4485df5/ngnix/config/php.ini > /dev/null 2>&1
   wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/6b7a029919d13500d285c47bf1c3d5aac4485df5/ngnix/config/supervisord.conf > /dev/null 2>&1
+  wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/6b7a029919d13500d285c47bf1c3d5aac4485df5/ngnix/config/mime.types > /dev/null 2>&1
   wget -P src https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/6b7a029919d13500d285c47bf1c3d5aac4485df5/ngnix/src/index.php > /dev/null 2>&1
   wget -P src https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/6b7a029919d13500d285c47bf1c3d5aac4485df5/ngnix/src/test.html > /dev/null 2>&1
 
