@@ -1,7 +1,14 @@
 ####
 # Function to create HTML instructions
 create_html_instructions() {
-  local public_ip=$(curl -s https://api.ipify.org)
+
+    # Get public IP with retry
+    for i in {1..3}; do
+        public_ip=$(curl -s -f https://api.ipify.org)
+        [[ $? -eq 0 && -n "$public_ip" ]] && break
+        sleep 2
+    done
+
   # Create HTML instructions
   if $use_ssl; then
   cat <<EOL > "$container_dir/nginx/www/instructions.html"

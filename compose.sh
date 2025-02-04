@@ -38,7 +38,7 @@ services:
       - $container_dir/certbot/log/letsencrypt:/var/log/letsencrypt
       - $container_dir/certbot/duckdns.ini:/conf/duckdns.ini
     image: infinityofspace/certbot_dns_duckdns:latest
-    command: certonly --non-interactive --agree-tos --email <your-email>
+    command: certonly --non-interactive --agree-tos --email $SSL_EMAIL
       --preferred-challenges dns --authenticator dns-duckdns
       --dns-duckdns-credentials /conf/duckdns.ini
       --dns-duckdns-propagation-seconds 60 -d "$jks_domain"
