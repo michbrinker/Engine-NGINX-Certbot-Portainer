@@ -169,11 +169,9 @@ EOL
 
   if $use_ssl; then
   sed -i '/ # listen 443 ssl;/c listen 443 ssl;' $container_dir/nginx/config/conf.d/default.conf
-  sed -i '/ # ssl_certificate /etc/nginx/ssl/default.crt;/c ssl_certificate /etc/nginx/ssl/default.crt;' $container_dir/nginx/config/conf.d/default.conf
-  sed -i '/ # ssl_certificate_key /etc/nginx/ssl/default.key;/c ssl_certificate_key /etc/nginx/ssl/default.key;' $container_dir/nginx/config/conf.d/default.conf
+  sed -i '7,8 s/^\s*#\s*//' default.conf
   fi
   
-
     # Create a Dockerfile for WSE
   cat <<EOL > Dockerfile
 FROM alpine:latest
