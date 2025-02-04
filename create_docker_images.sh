@@ -153,7 +153,9 @@ EOL
     echo "RUN sed -i 's|<DocumentationServerEnable>false</DocumentationServerEnable>|<DocumentationServerEnable>true</DocumentationServerEnable>|' /usr/local/WowzaStreamingEngine/conf/Server.xml" >> Dockerfile
   fi
 
-  sudo docker build -t wowza_engine:$engine_version .
+  # Build the file
+  cd ..
+  sudo docker build -t wowza_engine:$engine_version wowza/Dockerfile .
 
 # Created dockerfile for NGINX
   # Change directory to nginx
