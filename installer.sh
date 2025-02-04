@@ -84,8 +84,8 @@ if [ $? -ne 0 ]; then
 fi
 check_for_jks # runs upload_jks, ssl_config, duckDNS_create
 create_docker_images
-check_env_prompt_credentials 
-create_and_run_docker_compose
+credentials 
+compose
 
 # Create symlinks for Engine directories
 sudo ln -sf /var/lib/docker/volumes/${stack_name}_engine/_data/conf/ $container_dir/Engine_conf
@@ -102,7 +102,7 @@ if ! $duckdns; then
   convert_jks_to_pem
 fi
 
-install_swagger
+swagger
 cleanup
 create_html_instructions
 
