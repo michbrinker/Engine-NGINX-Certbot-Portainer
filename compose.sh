@@ -44,7 +44,7 @@ services:
       --dns-duckdns-propagation-seconds 60 -d "$jks_domain"
   nginx:
     container_name: ${container_name}_nginx
-    build: -f nginx/Dockerfile
+    build: nginx/Dockerfile
     ports:
       - 80:80
       - 444:443
@@ -55,7 +55,7 @@ services:
     restart: unless-stopped
   wowza:
     container_name: ${container_name}
-    build: -f wowza/Dockerfile
+    build: wowza/Dockerfile
     restart: always
     ports:
       - "6970-7000:6970-7000/udp"
