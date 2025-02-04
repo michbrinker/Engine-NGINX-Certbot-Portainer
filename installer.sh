@@ -110,7 +110,7 @@ create_html_instructions
 if $use_ssl; then
 echo -e "${w}For instructions on using the installed software, please visit ${yellow}https://$jks_domain:444/instructions.html${NOCOLOR}"
 else
-echo -e "${w}For instructions on using the installed software, please open ${yellow}http://$jks_domain/instructions.html${NOCOLOR}"
+echo -e "${w}For instructions on using the installed software, please open ${yellow}http://$public_ip/instructions.html${NOCOLOR}"
 fi
 
 # Prompt user to delete installer script
