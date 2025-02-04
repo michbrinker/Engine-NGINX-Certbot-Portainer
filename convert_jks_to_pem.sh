@@ -2,7 +2,7 @@
 # Function to convert uploaded jks file to pem
 convert_jks_to_pem() {
 
-echo "Converting $jks_file to PEM format for use with Webserver and Portainer..."
+echo "Converting $jks_file to crt and key format for use with Webserver and Portainer..."
 
 # Check if keytool is installed and install it
     if ! command -v keytool &> /dev/null; then
@@ -22,11 +22,13 @@ cd $upload
         -destkeypass "$jks_password" \
         -noprompt
 
-# Convert PKCS12 to PEM (certificate only)
-sudo openssl pkcs12 -in keystore.p12 -nokeys -out fullchain.pem -passin pass:$jks_password
+# Convert PKCS12 to CRT (certificate only)
+sudo openssl pkcs12 -in keystore.p12 -nokeys -out default.crt -passin pass:$jks_password
 
-# Convert PKCS12 to PEM (private key only)
-sudo openssl pkcs12 -in keystore.p12 -nodes -nocerts -out privkey.pem -passin pass:$jks_password
+# Convert PKCS12 to KEY (private key only)
+sudo openssl pkcs12 -in keystore.p12 -nodes -nocerts -out default.key -passin pass:$jks_password
 
-sudo cp fullchain.pem $container_dir/certbot/letsencrypt/$jks_domain && sudo cp privkey.pem $container_dir/certbot/letsencrypt/$jks_domain
+# Copy files to an ssl dir
+sudo mkdir $container_dir/certbot/letsencrypt/$jks_domain
+sudo cp default.crt $container_dir/certbot/letsencrypt/$jks_domain && sudo cp default.key $container_dir/certbot/letsencrypt/$jks_domain
 }
