@@ -31,4 +31,5 @@ sudo openssl pkcs12 -in keystore.p12 -nodes -nocerts -out default.key -passin pa
 # Copy files to an ssl dir
 sudo mkdir $container_dir/certbot/letsencrypt/$jks_domain
 sudo cp default.crt $container_dir/certbot/letsencrypt/$jks_domain && sudo cp default.key $container_dir/certbot/letsencrypt/$jks_domain
+sudo chmod 644 $container_dir/certbot/letsencrypt/$jks_domain/default.crt && sudo chmod 644 $container_dir/certbot/letsencrypt/$jks_domain/default.key
 }

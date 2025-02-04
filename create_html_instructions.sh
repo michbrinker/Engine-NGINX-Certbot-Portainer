@@ -69,7 +69,7 @@ create_html_instructions() {
       <h2>Wowza Streaming Engine</h2>
       <img src="https://www.wowza.com/wp-content/uploads/Wowza-logo-transparent.png" alt="Wowza Logo" class="logo">
       <p>Access the Wowza Streaming Engine Manager at: <a href="https://$jks_domain:8090" target="_blank">https://$jks_domain:8090</a></p>
-      <p>Access the Swagger UI for REST API at: <a href="https://$jks_domain:444/swagger/" target="_blank">https://$jks_domain:444/swagger</a></p>
+      <p>Access the Swagger UI for REST API at: <a href="http://$public_ip/swagger/" target="_blank">http://$public_ip/swagger</a></p>
       <p>To manage the Engine files, use the following symlinks in the <strong>$container_dir</strong> directory:</p>
       <ul>
         <li>Engine_lib</li>
@@ -113,16 +113,13 @@ create_html_instructions() {
       <p>For more information, visit the <a href="https://www.portainer.io" target="_blank">Portainer website</a>.</p>
     </div>
 
-    <div class="section">
-      <h2>SWAG</h2>
-      <img src="https://docs.linuxserver.io/assets/icon.svg" alt="SWAG Logo" class="logo">
-      <p>Access the SWAG webserver at: <a href="https://$jks_domain:444" target="_blank">https://$jks_domain:444</a></p>
-      <p>SWAG - Secure Web Application Gateway (formerly known as letsencrypt, no relation to Let's Encrypt™) sets up an 
-      Nginx webserver and reverse proxy with php support and a built-in certbot client that automates free SSL server certificate generation 
-      and renewal processes (Let's Encrypt and ZeroSSL). It also contains fail2ban for intrusion prevention.
-      </p>
+<div class="section">
+       <h2>nginx</h2>
+      <img src="https://banner2.cleanpng.com/20180630/hwg/aaymrz7q3.webp" alt="nginx Logo" class="logo">
+      <p>Access the Nginx webserver at: <a href="https://$jks_domain:444" target="_blank">https://$jks_domain:444</a></p>
+      <p>Nginx is a popular open-source web server software used to serve web content over the internet. It enables you to serve a player page, test SecureToken and aes128 encryption</p>
       <p>To manage the webserver and pages you can access the files in <strong>$container_dir/www</strong></p>
-      <p>For more information, visit the <a href="https://github.com/linuxserver/docker-swag" target="_blank">SWAG github</a>.</p>
+      <p>For more information, visit the <a href="https://nginx.org/en/" target="_blank">Nginx home page</a>.</p>
     </div>
   </div>
 </body>
@@ -238,7 +235,7 @@ EOL
     <div class="section">
        <h2>nginx</h2>
       <img src="https://banner2.cleanpng.com/20180630/hwg/aaymrz7q3.webp" alt="nginx Logo" class="logo">
-      <p>Access the nginx webserver at: <a href="http://$public_ip" target="_blank">http://$public_ip</a></p>
+      <p>Access the Nginx webserver at: <a href="http://$public_ip" target="_blank">http://$public_ip</a></p>
       <p>Nginx is a popular open-source web server software used to serve web content over the internet. It enables you to serve a player page, test SecureToken and aes128 encryption</p>
       <p>To manage the webserver and pages you can access the files in <strong>$container_dir/www</strong></p>
       <p>For more information, visit the <a href="https://nginx.org/en/" target="_blank">Nginx home page</a>.</p>

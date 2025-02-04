@@ -89,8 +89,8 @@ EOL
   if $use_ssl; then
     cat <<EOL >> "$container_dir/docker-compose.yml"
     command: |-
-      --sslcert /certs/live/$jks_domain/fullchain.pem
-      --sslkey /certs/live/$jks_domain/privkey.pem
+      --sslcert /certs/live/$jks_domain/default.crt
+      --sslkey /certs/live/$jks_domain/default.key
 EOL
   fi
 

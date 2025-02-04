@@ -8,9 +8,5 @@ swagger() {
   rm RESTAPIDocumentationWebpage.zip
 
   # Replace the URL in the swagger/index.html file
-  if $use_ssl; then
-  sed -i "s|http://localhost:8089/api-docs|https://$jks_domain:8089/api-docs|g" swagger/index.html
-  else
-  sed -i "s|http://localhost:8089/api-docs|http://$public_ip:8089/api-docs|g" swagger/index.html
-  fi
+   sed -i "s|http://localhost:8089/api-docs|http://$public_ip:8089/api-docs|g" swagger/index.html
 }
