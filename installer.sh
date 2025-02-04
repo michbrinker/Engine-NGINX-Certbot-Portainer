@@ -95,13 +95,13 @@ sudo ln -sf /var/lib/docker/volumes/${stack_name}_engine/_data/transcoder/ $cont
 sudo ln -sf /var/lib/docker/volumes/${stack_name}_engine/_data/manager/ $container_dir/Engine_manager
 sudo ln -sf /var/lib/docker/volumes/${stack_name}_engine/_data/lib /$container_dir/Engine_lib
 
-if $duckdns; then
+if $duckdns && $use_ssl; then
   convert_pem_to_jks "$jks_domain" "$jks_password" "$jks_password"
 fi
 
 echo $duckdns
 
-if ! $duckdns; then
+if ! $duckdns && $use_ssl; then
   convert_jks_to_pem
 fi
 
