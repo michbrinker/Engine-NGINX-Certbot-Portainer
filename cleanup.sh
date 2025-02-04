@@ -3,9 +3,9 @@
 cleanup() {
 echo "Cleaning up the install directory..."
 
-  if [ -f "$upload/tomcat.properties" ]; then
-    sudo rm "$upload/tomcat.properties"
-  fi
+  #if [ -f "$upload/tomcat.properties" ]; then
+  #  sudo rm "$upload/tomcat.properties"
+  #fi
 
   # Copy the .jks file into the wse container
   if ! $duckdns && $use_ssl; then
