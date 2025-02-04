@@ -8,7 +8,7 @@ echo "Cleaning up the install directory..."
   fi
 
   # Copy the .jks file into the wse container
-  if ! $duckdns; then
+  if ! $duckdns && $use_ssl; then
     sudo docker cp $upload/$jks_file $container_name:/usr/local/WowzaStreamingEngine/conf/$jks_file
   fi
 
