@@ -155,7 +155,7 @@ EOL
 
   # Build the file
   cd ..
-  sudo docker build -t wowza_engine:$engine_version wowza/Dockerfile .
+  sudo docker build -t wowza_engine:$engine_version -f wowza/Dockerfile .
 
 # Created dockerfile for NGINX
   # Change directory to nginx
