@@ -60,7 +60,7 @@ fetch_and_set_wowza_versions() {
 
     # Check if user canceled or input is empty, set default name
     if [ $? -ne 0 ] || [ -z "$container_name" ]; then
-        container_name="wse_${engine_version}"
+        export container_name="wse_${engine_version}"
     fi
 
     # Create container directory

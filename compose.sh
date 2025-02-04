@@ -32,7 +32,7 @@ fi
   cat <<EOL > "$container_dir/docker-compose.yml"
 services:
   certbot_dns_duckdns:
-  container_name: ${container_name}_certbot
+    container_name: ${container_name}_certbot
     volumes:
       - $container_dir/certbot/letsencrypt:/etc/letsencrypt
       - $container_dir/certbot/log/letsencrypt:/var/log/letsencrypt
