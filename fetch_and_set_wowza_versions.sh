@@ -64,7 +64,7 @@ fetch_and_set_wowza_versions() {
     fi
 
     # Create container directory
-    container_dir="$encp/$container_name"
+    export container_dir="$encp/$container_name"
     mkdir -p "$container_dir" || {
         echo "Error: Failed to create container directory"
         exit 1

@@ -4,12 +4,12 @@ check_for_jks() {
     use_ssl=false
   # Step 1: Ask user if they want to use SSL
   if whiptail --title "SSL Configuration" --yesno "Do you want to use SSL? Note: The installer can assist in getting a free domain and SSL. Non SSL config is currently broken for Webserver" 10 60; then
-    use_ssl=true
+    export use_ssl=true
   else
-    use_ssl=false
-    duckdns=false
-    uploaded_jks=false
-    chosen_jks_file=false
+    export use_ssl=false
+    export duckdns=false
+    export uploaded_jks=false
+    export chosen_jks_file=false
     create_docker_images
     return 1
   fi
@@ -18,7 +18,7 @@ check_for_jks() {
 
   # Step 2: Find all .jks files
   jks_files=($(ls "$upload"/*.jks 2>/dev/null))
-  chosen_jks_file=false
+  export chosen_jks_file=false
   if [ ${#jks_files[@]} -eq 0 ]; then
     whiptail --title "SSL Configuration" --msgbox "No .jks file/s found." 10 60
     if whiptail --title "SSL Configuration" --yesno "Do you want to upload a JKS file or create a new domain and JKS file?" 10 60 --yes-button "Upload" --no-button "Create"; then
@@ -30,9 +30,9 @@ check_for_jks() {
     if [ ${#jks_files[@]} -eq 1 ]; then
       jks_file="${jks_files[0]}"
       if whiptail --title "JKS File/s Detected" --yesno "A .jks file $(basename "$jks_file") was detected. Do you want to use this file?" 10 60; then
-        chosen_jks_file=true
-        uploaded_jks=false
-        duckdns=false
+        export chosen_jks_file=true
+        export uploaded_jks=false
+        export duckdns=false
         ssl_config "$jks_file"
       else
         if whiptail --title "SSL Configuration" --yesno "Do you want to upload a JKS file or create a new domain and JKS file?" 10 60 --yes-button "Upload" --no-button "Create"; then
@@ -52,21 +52,21 @@ check_for_jks() {
         jks_file=$(whiptail --title "SSL Configuration" --radiolist "Multiple JKS files found. Choose one:" 20 60 10 "${menu_options[@]}" 3>&1 1>&2 2>&3)
         
         if [ $? -eq 0 ] && [ -n "$jks_file" ]; then
-          jks_file="$upload/$jks_file"
+          export jks_file="$upload/$jks_file"
           break
         else
           if ! whiptail --title "SSL Configuration" --yesno "You must select a JKS file. Do you want to try again? Use the space button to select." 10 60; then
             whiptail --title "SSL Configuration" --msgbox "No JKS file selected. Exiting." 10 60
-              use_ssl=false
-              duckdns=false
-              uploaded_jks=false
-              chosen_jks_file=false
+              export use_ssl=false
+              export duckdns=false
+              export uploaded_jks=false
+              export chosen_jks_file=false
               create_docker_images
             return 1
           fi
         fi
       done
-      chosen_jks_file=true
+      export chosen_jks_file=true
       ssl_config "$jks_file"
     fi
   fi
