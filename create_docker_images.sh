@@ -163,8 +163,14 @@ EOL
   wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/6b7a029919d13500d285c47bf1c3d5aac4485df5/ngnix/config/php.ini > /dev/null 2>&1
   wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/6b7a029919d13500d285c47bf1c3d5aac4485df5/ngnix/config/supervisord.conf > /dev/null 2>&1
   wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/6b7a029919d13500d285c47bf1c3d5aac4485df5/ngnix/config/mime.types > /dev/null 2>&1
+  wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/6b7a029919d13500d285c47bf1c3d5aac4485df5/ngnix/config/fastcgi_params > /dev/null 2>&1
   wget -P src https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/6b7a029919d13500d285c47bf1c3d5aac4485df5/ngnix/src/index.php > /dev/null 2>&1
   wget -P src https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/6b7a029919d13500d285c47bf1c3d5aac4485df5/ngnix/src/test.html > /dev/null 2>&1
+
+  if [ -f "$upload/tomcat.properties" ]; then
+  sed -i '/ # listen 443 ssl;/c listen 443 ssl;' $container_dir/nginx/config/conf.d/default.conf
+  fi
+  
 
     # Create a Dockerfile for WSE
   cat <<EOL > Dockerfile
@@ -198,12 +204,6 @@ RUN apk add --no-cache \
   php84-xmlwriter \
   supervisor
 
-# Configure nginx - http
-COPY config/nginx.conf /etc/nginx/nginx.conf
-# Configure nginx - default server
-COPY config/conf.d /etc/nginx/conf.d/
-COPY config/mime.types /etc/ngnix/mime.types
-
 # Configure PHP-FPM
 ENV PHP_INI_DIR=/etc/php84
 COPY config/fpm-pool.conf ${PHP_INI_DIR}/php-fpm.d/www.conf
@@ -217,8 +217,5 @@ COPY src/ /var/www/html/
 
 # Let supervisord start nginx & php-fpm
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
-
-# Configure a healthcheck to validate that everything is up&running
-HEALTHCHECK --timeout=10s CMD curl --silent --fail http://127.0.0.1:80/fpm-ping || exit 1
 EOL
 }

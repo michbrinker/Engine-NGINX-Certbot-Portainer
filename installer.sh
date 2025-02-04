@@ -11,8 +11,8 @@ export NEWT_COLORS='
 root=,black'
 
 # Display info box about the script and function scripts
-whiptail --title "Docker Engine Workflow Installer" --msgbox "
-Welcome to the Docker Engine Workflow Installer!\n\nThis installation script automates the deployment of\n\n - Wowza Streaming Engine\n\n - SWAG (simple webserver and SSL bot)\n\n - Portainer (docker management tool)\n\nin a Docker stack." 20 75
+whiptail --title "Engine Nginx Certbot Portainer (encp) Workflow Installer" --msgbox "
+Welcome to the Docker Engine Workflow Installer!\n\nThis installation script automates the deployment of\n\n - Wowza Streaming Engine\n\n - Nginx (simple webserver)\n\n - Certbot (automatic SSL management)\n\n - Portainer (docker management tool)\n\nin a Docker stack." 20 75
 
 #
 ## Set directory variables and create the directories
@@ -115,7 +115,7 @@ fi
 
 # Prompt user to delete installer script
 if whiptail --title "Installation complete" --yesno "The installer has completed the installation of 
-Wowza Streaming Engine, SWAG and Portainer.
+Wowza Streaming Engine, Nginx, certbot and Portainer.
 
 Do you want to delete this installer script?" 16 78; then
   rm $SCRIPT_DIR/DockerEngineInstaller.sh
