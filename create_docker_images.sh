@@ -169,7 +169,7 @@ EOL
 
   if $use_ssl; then
   sed -i '/ # listen 443 ssl;/c listen 443 ssl;' $container_dir/nginx/config/conf.d/default.conf
-  sed -i '7,8 s/^\s*#\s*//' default.conf
+  sed -i '7,8 s/^\s*#\s*//' $container_dir/nginx/config/conf.d/default.conf
   fi
   
     # Create a Dockerfile for WSE
