@@ -103,7 +103,7 @@ sudo ln -sf /var/lib/docker/volumes/${stack_name}_engine/_data/manager/ $contain
 sudo ln -sf /var/lib/docker/volumes/${stack_name}_engine/_data/lib /$container_dir/Engine_lib
 
 if $duckdns && $use_ssl; then
-  convert_pem_to_jks "$jks_domain" "$jks_password" "$jks_password"
+  convert_pem_to_jks "$jks_duckdns_domain" "$jks_password" "$jks_password"
 fi
 
 swagger

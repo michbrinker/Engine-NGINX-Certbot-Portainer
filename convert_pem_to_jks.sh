@@ -1,8 +1,8 @@
 # Function to convert PEM to PKCS12 and then to JKS
 convert_pem_to_jks() {
-  echo "Converting Letsencrypt certificate to JKS format ($domain.jks) for use with Wowza Streaming Engine..."
+  echo "Converting Letsencrypt certificate to JKS format ($jks_duckdns_domain.jks) for use with Wowza Streaming Engine..."
     local domain=$1
-    local pem_dir=/usr/local/WowzaStreamingEngine/conf/ssl/archive/$domain
+    local pem_dir=$container_dir/certbot/letsencrypt/archive/$domain
     local jks_dir=/usr/local/WowzaStreamingEngine/conf
     local pkcs12_password=$2
     local jks_password=$3
@@ -52,8 +52,9 @@ convert_pem_to_jks() {
     done
     
     # Convert PEM to PKCS12 and then to JKS inside the Docker container
-    docker exec "$container_name" bash -c "
-        openssl pkcs12 -export -in '$pem_dir/fullchain1.pem' -inkey '$pem_dir/privkey1.pem' -out '$jks_dir/$domain.p12' -name '$domain' -passout pass:$pkcs12_password &&
+    openssl pkcs12 -export -in '$pem_dir/fullchain1.pem' -inkey '$pem_dir/privkey1.pem' -out '$pem_dir/$domain.p12' -name '$domain' -passout pass:$pkcs12_password &&
+    docker cp $pem_dir/$domain.p12 $container_name:$jks_dir
+    docker exec -it $container_name bash -c "   
         /usr/local/WowzaStreamingEngine/java/bin/keytool -importkeystore -srckeystore '$jks_dir/$domain.p12' -srcstoretype PKCS12 -srcstorepass $pkcs12_password -destkeystore '$jks_dir/$domain.jks' -deststorepass $jks_password -destkeypass $jks_password -alias '$domain' -noprompt
     "
 
