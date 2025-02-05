@@ -91,7 +91,8 @@ if ! $duckdns && $use_ssl; then
 fi
 
 create_docker_images
-credentials 
+credentials
+stop_previous_docker
 compose
 
 # Create symlinks for Engine directories
