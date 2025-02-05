@@ -51,7 +51,7 @@ services:
     volumes:
       - $container_dir/nginx/config:/etc/nginx
       - $container_dir/nginx/www:/var/www/html
-      - $container_dir/certbot/letsencrypt/$jks_domain:/etc/nginx/ssl
+      - $container_dir/certbot/letsencrypt/archive/$jks_domain:/etc/nginx/ssl
     restart: unless-stopped
   wowza:
     container_name: ${container_name}
@@ -65,7 +65,7 @@ services:
       - "8084-8090:8084-8090/tcp" 
     volumes:
       - engine:/usr/local/WowzaStreamingEngine
-      - $container_dir/certbot/letsencrypt/$jks_domain:/usr/local/WowzaStreamingEngine/conf/ssl
+      - $container_dir/certbot/letsencrypt:/usr/local/WowzaStreamingEngine/conf/ssl
       - $container_dir/nginx/www:/usr/local/WowzaStreamingEngine/www
     entrypoint: /sbin/entrypoint.sh
     env_file: 
@@ -81,7 +81,7 @@ services:
       - 9443:9443
       - 8000:9000
     volumes:
-      - $container_dir/certbot/letsencrypt/$jks_domain:/certs/live/$jks_domain:ro
+      - $container_dir/certbot/letsencrypt:/certs:ro
       - portainer_data:/data
       - /var/run/docker.sock:/var/run/docker.sock
 EOL
@@ -89,8 +89,8 @@ EOL
   if $use_ssl; then
     cat <<EOL >> "$container_dir/docker-compose.yml"
     command: |-
-      --sslcert /certs/live/$jks_domain/default.crt
-      --sslkey /certs/live/$jks_domain/default.key
+      --sslcert /certs/live/$jks_domain/fullchain.pem
+      --sslkey /certs/live/$jks_domain/privkey.pem
 EOL
   fi
 

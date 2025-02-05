@@ -1,8 +1,8 @@
 # Function to convert PEM to PKCS12 and then to JKS
 convert_pem_to_jks() {
-  echo "Converting ZeroSSL certificate to JKS format ($domain.jks) for use with Wowza Streaming Engine..."
+  echo "Converting Letsencrypt certificate to JKS format ($domain.jks) for use with Wowza Streaming Engine..."
     local domain=$1
-    local pem_dir=/usr/local/WowzaStreamingEngine/conf/ssl/$domain
+    local pem_dir=/usr/local/WowzaStreamingEngine/conf/ssl/archive/$domain
     local jks_dir=/usr/local/WowzaStreamingEngine/conf
     local pkcs12_password=$2
     local jks_password=$3
