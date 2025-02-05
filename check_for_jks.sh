@@ -50,13 +50,23 @@ check_for_jks() {
       for file in "${jks_files[@]}"; do
         menu_options+=("$(basename "$file")" "" OFF)
       done
+      menu_options+=("Upload a new JKS file" "" OFF)
+      menu_options+=("Create a new JKS file with DuckDNS" "" OFF)
       # Present a list of .jks files to choose from
       while true; do
-        jks_file=$(whiptail --title "SSL Configuration" --radiolist "Multiple JKS files found. Choose one:" 20 60 10 "${menu_options[@]}" 3>&1 1>&2 2>&3)
+        jks_file=$(whiptail --title "SSL Configuration" --radiolist "Multiple JKS files found. Choose one by pressing space and using arrow keys:" 20 60 10 "${menu_options[@]}" 3>&1 1>&2 2>&3)
         
         if [ $? -eq 0 ] && [ -n "$jks_file" ]; then
-          export jks_file="$upload/$jks_file"
-          break
+          if [ "$jks_file" == "Upload a new JKS file" ]; then
+            upload_jks
+            return
+          elif [ "$jks_file" == "Create a new JKS file with DuckDNS" ]; then
+            duckDNS_create
+            return
+          else
+            export jks_file="$upload/$jks_file"
+            break
+          fi
         else
           if ! whiptail --title "SSL Configuration" --yesno "You must select a JKS file. Do you want to try again? Use the space button to select." 10 60; then
             whiptail --title "SSL Configuration" --msgbox "No JKS file selected. Exiting." 10 60
