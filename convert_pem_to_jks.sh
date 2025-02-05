@@ -27,7 +27,7 @@ convert_pem_to_jks() {
         all_files_present=true
         files_found=0
         for file in "${required_files[@]}"; do
-            if docker exec "$container_name" test -f "$pem_dir/$file"; then
+            if test -f "$pem_dir/$file"; then
                 files_found=$((files_found + 1))
             else
                 all_files_present=false
@@ -53,7 +53,7 @@ convert_pem_to_jks() {
     
     # Convert PEM to PKCS12 and then to JKS inside the Docker container
     openssl pkcs12 -export -in '$pem_dir/fullchain1.pem' -inkey '$pem_dir/privkey1.pem' -out '$pem_dir/$domain.p12' -name '$domain' -passout pass:$pkcs12_password &&
-    docker cp $pem_dir/$domain.p12 $container_name:$jks_dir
+    docker cp $pem_dir/$domain.p12 $container_name:$jks_dir/$domain.p12
     docker exec -it $container_name bash -c "   
         /usr/local/WowzaStreamingEngine/java/bin/keytool -importkeystore -srckeystore '$jks_dir/$domain.p12' -srcstoretype PKCS12 -srcstorepass $pkcs12_password -destkeystore '$jks_dir/$domain.jks' -deststorepass $jks_password -destkeypass $jks_password -alias '$domain' -noprompt
     "
