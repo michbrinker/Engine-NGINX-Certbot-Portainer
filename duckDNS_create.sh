@@ -67,8 +67,8 @@ duckDNS_create() {
     # Create jksfile variable
     jks_file="$upload/${jks_duckdns_domain}.jks"
 
-      # Create and copy duckdns.ini with secure permissions
-        if printf "dns_duckdns_token=%s\n" "$duckdns_token" > "$container_dir/certbot/duckdns.ini"; then
+      # Create duckdns.ini with secure permissions
+        if mkdir -p -m 777 $container_dir/certbot/ && echo "dns_duckdns_token=$duckdns_token" > "$container_dir/certbot/duckdns.ini"; then
             sudo chmod 644 "$container_dir/certbot/duckdns.ini" && chosen_jks_file=false && uploaded_jks=false && duckdns=true && ssl_config "$jks_file"
         else
             whiptail --title "Error" --msgbox "Failed to create DuckDNS configuration" 8 $DIALOG_WIDTH
