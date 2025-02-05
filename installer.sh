@@ -28,6 +28,8 @@ mkdir -p -m 777 "$encp"
 upload="$encp/upload"
 mkdir -p -m 777 "$upload"
 
+echo "Getting a few things ready for the installation"
+
 # URL of the Functions Scripts
 DEPENDENCIES_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/dependencies.sh"
 FETCH_AND_SET_WOWZA_VERSIONS_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/fetch_and_set_wowza_versions.sh"
