@@ -69,7 +69,3 @@ convert_pem_to_jks() {
 
     return 0
 }
-openssl pkcs12 -export -in /usr/local/WowzaStreamingEngine/conf/ssl/archive/wowlex.duckdns.org/cert1.pem -inkey /usr/local/WowzaStreamingEngine/conf/ssl/archive/wowlex.duckdns.org/privkey1.pem -out /usr/local/WowzaStreamingEngine/conf/wowlex.duckdns.org.p12 -name wowlex.duckdns.org -passout pass:djuum20
-/usr/local/WowzaStreamingEngine/java/bin/keytool -importkeystore -srckeystore /usr/local/WowzaStreamingEngine/conf/wowlex.duckdns.org.p12 -srcstoretype PKCS12 -srcstorepass djuum20 -destkeystore /usr/local/WowzaStreamingEngine/conf/wowlex.duckdns.org.jks -deststorepass djuum20 -destkeypass djuum20 -alias wowlex.duckdns.org -noprompt
-/usr/local/WowzaStreamingEngine/java/bin/keytool -import -alias root -trustcacerts -file ssl/archive/wowlex.duckdns.org/chain1.pem -keystore wowlex.duckdns.org.jks -storepass djuum20
-/usr/local/WowzaStreamingEngine/java/bin/keytool -import -alias chain -trustcacerts -file ssl/archive/wowlex.duckdns.org/fullchain1.pem -keystore wowlex.duckdns.org.jks -storepass djuum20 -noprompt
