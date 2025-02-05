@@ -64,6 +64,8 @@ services:
       - "554:554"
       - "8084-8090:8084-8090/tcp" 
     volumes:
+      - ./Engine_logs:/usr/local/WowzaStreamingEngine/logs
+      - ./Engine_content:/usr/local/WowzaStreamingEngine/content
       - engine:/usr/local/WowzaStreamingEngine
       - $container_dir/certbot/letsencrypt:/usr/local/WowzaStreamingEngine/conf/ssl
       - $container_dir/nginx/www:/usr/local/WowzaStreamingEngine/www

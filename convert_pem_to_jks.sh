@@ -52,10 +52,12 @@ convert_pem_to_jks() {
     done
     
     # Convert PEM to PKCS12 and then to JKS inside the Docker container
-    sudo openssl pkcs12 -export -in "$pem_dir/fullchain1.pem" -inkey "$pem_dir/privkey1.pem" -out "$pem_dir/$domain.p12" -name "$domain" -passout pass:$pkcs12_password
+    sudo openssl pkcs12 -export -in "$pem_dir/cert1.pem" -inkey "$pem_dir/privkey1.pem" -out "$pem_dir/$domain.p12" -name "$domain" -passout pass:$pkcs12_password
     sudo docker cp $pem_dir/$domain.p12 $container_name:$jks_dir/$domain.p12
     sudo docker exec -it $container_name bash -c "   
-        /usr/local/WowzaStreamingEngine/java/bin/keytool -importkeystore -srckeystore '$jks_dir/$domain.p12' -srcstoretype PKCS12 -srcstorepass $pkcs12_password -destkeystore '$jks_dir/$domain.jks' -deststorepass $jks_password -destkeypass $jks_password -alias '$domain' -noprompt
+        /usr/local/WowzaStreamingEngine/java/bin/keytool -importkeystore -srckeystore '$jks_dir/$domain.p12' -srcstoretype PKCS12 -srcstorepass $pkcs12_password -destkeystore '$jks_dir/$domain.jks' -deststorepass $jks_password -destkeypass $jks_password -alias '$domain' -noprompt &&
+        /usr/local/WowzaStreamingEngine/java/bin/keytool -import -alias root -trustcacerts -file $jks_dir/ssl/archive/$domain/chain1.pem -keystore $domain.jks -storepass $jks_password &&
+        /usr/local/WowzaStreamingEngine/java/bin/keytool -import -alias chain -trustcacerts -file $jks_dir/ssl/archive/$domain/fullchain1.pem -keystore $domain.jks -storepass $jks_password
     "
 
     if [ $? -eq 0 ]; then
@@ -67,3 +69,7 @@ convert_pem_to_jks() {
 
     return 0
 }
+openssl pkcs12 -export -in /usr/local/WowzaStreamingEngine/conf/ssl/archive/wowlex.duckdns.org/cert1.pem -inkey /usr/local/WowzaStreamingEngine/conf/ssl/archive/wowlex.duckdns.org/privkey1.pem -out /usr/local/WowzaStreamingEngine/conf/wowlex.duckdns.org.p12 -name wowlex.duckdns.org -passout pass:djuum20
+/usr/local/WowzaStreamingEngine/java/bin/keytool -importkeystore -srckeystore /usr/local/WowzaStreamingEngine/conf/wowlex.duckdns.org.p12 -srcstoretype PKCS12 -srcstorepass djuum20 -destkeystore /usr/local/WowzaStreamingEngine/conf/wowlex.duckdns.org.jks -deststorepass djuum20 -destkeypass djuum20 -alias wowlex.duckdns.org -noprompt
+/usr/local/WowzaStreamingEngine/java/bin/keytool -import -alias root -trustcacerts -file ssl/archive/wowlex.duckdns.org/chain1.pem -keystore wowlex.duckdns.org.jks -storepass djuum20
+/usr/local/WowzaStreamingEngine/java/bin/keytool -import -alias chain -trustcacerts -file ssl/archive/wowlex.duckdns.org/fullchain1.pem -keystore wowlex.duckdns.org.jks -storepass djuum20 -noprompt
