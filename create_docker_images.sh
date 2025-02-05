@@ -169,15 +169,15 @@ fi
   # Change directory to nginx
   mkdir -p -m 777 "$container_dir/nginx" && cd "$container_dir/nginx"
   # Copy dependency files from github
-  wget -P config/conf.d https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/ngnix/config/conf.d/default.conf > /dev/null 2>&1
-  wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/ngnix/config/fpm-pool.conf > /dev/null 2>&1
-  wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/ngnix/config/nginx.conf > /dev/null 2>&1
-  wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/ngnix/config/php.ini > /dev/null 2>&1
-  wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/ngnix/config/supervisord.conf > /dev/null 2>&1
-  wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/ngnix/config/mime.types > /dev/null 2>&1
-  wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/ngnix/config/fastcgi_params > /dev/null 2>&1
-  wget -P src https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/ngnix/src/index.php > /dev/null 2>&1
-  wget -P src https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/ngnix/src/test.html > /dev/null 2>&1
+  wget -P config/conf.d https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/ngnix/config/conf.d/default.conf > /dev/null 2>&1
+  wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/ngnix/config/fpm-pool.conf > /dev/null 2>&1
+  wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/ngnix/config/nginx.conf > /dev/null 2>&1
+  wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/ngnix/config/php.ini > /dev/null 2>&1
+  wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/ngnix/config/supervisord.conf > /dev/null 2>&1
+  wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/ngnix/config/mime.types > /dev/null 2>&1
+  wget -P config https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/ngnix/config/fastcgi_params > /dev/null 2>&1
+  wget -P src https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/ngnix/src/index.php > /dev/null 2>&1
+  wget -P src https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/ngnix/src/test.html > /dev/null 2>&1
 
   if $use_ssl; then
   sed -i '/ # listen 443 ssl;/c listen 443 ssl;' $container_dir/nginx/config/conf.d/default.conf
