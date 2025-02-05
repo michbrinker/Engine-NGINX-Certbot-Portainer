@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ####
 # Function to configure SSL
 ssl_config() {

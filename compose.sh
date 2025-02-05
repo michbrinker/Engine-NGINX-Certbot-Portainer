@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ####
 # Function to create docker-compose.yml and run docker compose up
 compose() {

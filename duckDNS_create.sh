@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ####
 # Function to guide DuckDNS domain setup and prep for swag SSL setup
 duckDNS_create() {

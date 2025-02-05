@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ####
 # Function to upload .jks file
 upload_jks() {

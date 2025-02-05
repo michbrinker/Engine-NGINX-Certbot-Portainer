@@ -1,3 +1,5 @@
+#!/bin/bash
+
 #
 #### Check for Engine credentials and create .env file
 credentials () {

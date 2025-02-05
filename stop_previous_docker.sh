@@ -1,9 +1,7 @@
 #!/bin/bash
 
-# Directory containing the docker-compose.yml file
-compose_dir="/path/to/your/compose/directory"
-compose_file="$compose_dir/docker-compose.yml"
-
+# Function to stop docker containers that have the same ports as the compose stack
+stop_previous_docker() {
 # Extract ports from the docker-compose.yml file
 ports=$(grep -oP '(?<=ports:\n\s*- ")[^"]+' "$container_dir/docker-compose.yml")
 
@@ -15,3 +13,4 @@ for port in $ports; do
     docker stop "$container_id"
   fi
 done
+}

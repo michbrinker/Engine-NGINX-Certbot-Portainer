@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ####
 # Function to create HTML instructions
 create_html_instructions() {
@@ -84,7 +86,7 @@ create_html_instructions() {
         <li>Copy files in: <code>sudo cp [file_name] Engine_xxxx/[file_name]</code></li>
       </ul>
       <p>You can also access the logs and content directories directly in <code>$container_dir</code></p.
-      
+
       <p>NOTE: Container must be restarted for changes to take effect: <code>cd $container_dir && sudo docker restart $container_name && cd $SCRIPT_DIR</code></p>
       <p>To restart other containders, use ${container_name}_swag or ${container_name}_portainer in the same command</p>
       <p>To manage the state of the docker containers, use the following commands:</p>

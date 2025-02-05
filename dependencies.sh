@@ -1,3 +1,5 @@
+#!/bin/bash
+
 dependencies() {
 ####
 # Function to install Docker

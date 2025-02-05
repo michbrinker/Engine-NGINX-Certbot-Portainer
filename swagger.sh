@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ####
 # Function to install Swagger UI
 swagger() {

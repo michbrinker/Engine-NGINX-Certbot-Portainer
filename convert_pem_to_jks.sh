@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Function to convert PEM to PKCS12 and then to JKS
 convert_pem_to_jks() {
   echo "Converting Letsencrypt certificate to JKS format ($jks_duckdns_domain.jks) for use with Wowza Streaming Engine..."

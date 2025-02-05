@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ####
 # Function to create Dockerfiles Wowza Engine and NGINX
 create_docker_images() {

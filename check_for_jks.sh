@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ####
 # Function to check if SSL is going to be used, then scan for .jks file, offer to choose an available one
 check_for_jks() {

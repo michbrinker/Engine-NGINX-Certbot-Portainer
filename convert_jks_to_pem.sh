@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ####
 # Function to convert uploaded jks file to pem
 convert_jks_to_pem() {

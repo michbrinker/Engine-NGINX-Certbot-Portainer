@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ####
 # Function to fetch and set Wowza streaming engine Docker versions
 fetch_and_set_wowza_versions() {

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ####
 # Function to clean up the install directory and prompt user to delete Docker images and containers
 cleanup() {
