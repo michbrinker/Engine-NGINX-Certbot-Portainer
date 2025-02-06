@@ -72,11 +72,10 @@ create_html_instructions() {
       <img src="https://www.wowza.com/wp-content/uploads/Wowza-logo-transparent.png" alt="Wowza Logo" class="logo">
       <p>Access the Wowza Streaming Engine Manager at: <a href="https://$jks_domain:8090" target="_blank">https://$jks_domain:8090</a></p>
       <p>Access the Swagger UI for REST API at: <a href="http://$public_ip/swagger/" target="_blank">http://$public_ip/swagger</a></p>
-      <p>To manage the Engine files, navigate to <strong>$container_dir/WowzaStreamingEngine</strong> directory:</p>
-
-      <p>NOTE: Container must be restarted for changes to take effect: <code>cd $container_dir && sudo docker restart $container_name && cd $SCRIPT_DIR</code></p>
-      <p>To restart other containders, use ${container_name}_nginx or ${container_name}_portainer or ${container_name}_certbot in the same command</p>
-      
+      <p>To manage the Engine files, navigate to <strong>$container_dir/WowzaStreamingEngine</strong> directory.</p>
+      <p>NOTE: Container must be restarted for changes to take effect: <code>sudo docker restart $container_name</code></p>
+      <p>To restart other containers, use <code>${container_name}_nginx</code> or <code>${container_name}_portainer</code> or <code>${container_name}_certbot</code> in the same command as above</p>
+       
       <p>To manage the state of the docker stack, use the following commands:</p>
       <ul>
         <li>Stop and destroy the whole container stack:</li>
@@ -190,10 +189,9 @@ EOL
       <img src="https://www.wowza.com/wp-content/uploads/Wowza-logo-transparent.png" alt="Wowza Logo" class="logo">
       <p>Access the Wowza Streaming Engine Manager at: <a href="http://$public_ip:8088" target="_blank">http://$public_ip:8088</a></p>
       <p>Access the Swagger UI for REST API at: <a href="http://$public_ip/swagger/" target="_blank">http://$public_ip/swagger</a></p>
-      <p>To manage the Engine files, navigate to <strong>$container_dir/WowzaStreamingEngine</strong> directory:</p>
-
-      <p>NOTE: Container must be restarted for changes to take effect: <code>cd $container_dir && sudo docker restart $container_name && cd $SCRIPT_DIR</code></p>
-      <p>To restart other containders, use ${container_name}_nginx or ${container_name}_portainer or ${container_name}_certbot in the same command</p>
+      <p>To manage the Engine files, navigate to <strong>$container_dir/WowzaStreamingEngine</strong> directory.</p>
+      <p>NOTE: Container must be restarted for changes to take effect: <code>sudo docker restart $container_name</code></p>
+      <p>To restart other containers, use <code>${container_name}_nginx</code> or <code>${container_name}_portainer</code> or <code>${container_name}_certbot</code> in the same command as above</p>
       
       <p>To manage the state of the docker stack, use the following commands:</p>
       <ul>

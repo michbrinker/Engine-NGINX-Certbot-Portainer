@@ -105,6 +105,8 @@ volumes:
     driver: local
 EOL
 
+  stop_previous_docker
+  
   # Run docker compose up
   cd "$container_dir"
   sudo docker compose up -d

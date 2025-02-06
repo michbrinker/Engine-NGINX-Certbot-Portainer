@@ -98,7 +98,6 @@ fi
 
 create_docker_images
 credentials
-stop_previous_docker
 compose
 
 if $duckdns && $use_ssl; then
