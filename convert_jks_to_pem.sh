@@ -33,9 +33,9 @@ sudo openssl pkcs12 -in keystore.p12 -nodes -nocerts -out privkey.pem -passin pa
 # Copy files to an ssl dir
 sudo mkdir -p -m 777 $container_dir/certbot/letsencrypt/archive/$jks_domain
 sudo mkdir -p -m 777 $container_dir/certbot/letsencrypt/live/$jks_domain
-sudo cp fullchain.pem $container_dir/certbot/letsencrypt/archive/$jks_domain/fullchain.pem && sudo cp privkey.pem $container_dir/certbot/letsencrypt/archive/$jks_domain/privkey.pem
-sudo chmod 644 $container_dir/certbot/letsencrypt/archive/$jks_domain/fullchain.pem && sudo chmod 644 $container_dir/certbot/letsencrypt/archive/$jks_domain/privkey.pem
-sudo ln -sf $container_dir/certbot/letsencrypt/archive/$jks_domain/fullchain.pem $container_dir/certbot/letsencrypt/live/$jks_domain/fullchain.pem
-sudo ln -sf $container_dir/certbot/letsencrypt/archive/$jks_domain/privkey.pem $container_dir/certbot/letsencrypt/live/$jks_domain/privkey.pem
+sudo cp fullchain.pem $container_dir/certbot/letsencrypt/archive/$jks_domain/fullchain1.pem && sudo cp privkey.pem $container_dir/certbot/letsencrypt/archive/$jks_domain/privkey1.pem
+sudo chmod 644 $container_dir/certbot/letsencrypt/archive/$jks_domain/fullchain1.pem && sudo chmod 644 $container_dir/certbot/letsencrypt/archive/$jks_domain/privkey1.pem
+sudo ln -sf $container_dir/certbot/letsencrypt/archive/$jks_domain/fullchain1.pem $container_dir/certbot/letsencrypt/live/$jks_domain/fullchain.pem
+sudo ln -sf $container_dir/certbot/letsencrypt/archive/$jks_domain/privkey1.pem $container_dir/certbot/letsencrypt/live/$jks_domain/privkey.pem
 
 }

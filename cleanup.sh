@@ -16,7 +16,5 @@ cleanup() {
   sudo docker compose restart
 
   # Add user to root group
-  user=$(whoami)
-  sudo usermod -a -G root $user
-
+  sudo usermod -a -G root $SUDO_USER
 }
