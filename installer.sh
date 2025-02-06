@@ -107,8 +107,8 @@ fi
 
 swagger
 cleanup
-mount_engine_conf
 create_html_instructions
+mount_engine_conf
 
 if $use_ssl; then
 echo -e "${w}For instructions on using the installed software, please visit ${yellow}https://$jks_domain:444/instructions.html${NOCOLOR}"
