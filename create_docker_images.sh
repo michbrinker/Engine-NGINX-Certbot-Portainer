@@ -6,7 +6,11 @@ create_docker_images() {
   # Create dockerfile for Wowza Engine
   # Change directory to wowza
   mkdir -p -m 777 "$container_dir/wowza" && cd "$container_dir/wowza"
-  
+  # Copy JKS and tomact to Engine image
+    if ! $duckdns && $use_ssl; then
+      cp $upload/$jks_file $jks_file
+    fi
+    
   # Create a Dockerfile for WSE
   cat <<EOL > Dockerfile
 FROM wowzamedia/wowza-streaming-engine-linux:${engine_version}
@@ -71,13 +75,7 @@ RUN ./tuning.sh
 RUN rm tuning.sh
 
 EOL
-  # Copy JKS and tomact to Engine image
-  if ! $duckdns && $use_ssl; then
-    cp $upload/$jks_file $jks_file
-    if $use_ssl; then
-      cp $upload/tomcat.properties tomcat.properties
-    fi
-  fi
+
   if $use_ssl; then
     echo "COPY wowza/tomcat.properties /usr/local/WowzaStreamingEngine/manager/conf/" >> Dockerfile
     echo "RUN chown wowza:wowza /usr/local/WowzaStreamingEngine/manager/conf/tomcat.properties" >> Dockerfile

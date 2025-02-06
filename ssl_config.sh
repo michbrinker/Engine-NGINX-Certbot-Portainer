@@ -58,7 +58,7 @@ ssl_config() {
 
   # Setup Engine to use SSL for streaming and Manager access #
   # Create the tomcat.properties file
-  cat <<EOL > "$upload/tomcat.properties"
+  cat <<EOL > "$container_dir/wowza/tomcat.properties"
 httpsPort=8090
 httpsKeyStore=/usr/local/WowzaStreamingEngine/conf/${jks_file}
 httpsKeyStorePassword=${jks_password}
