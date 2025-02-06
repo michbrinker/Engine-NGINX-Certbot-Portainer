@@ -160,9 +160,9 @@ fi
   # Copy JKS and tomact to Engine image
   if ! $duckdns && $use_ssl; then
   cp $upload/$jks_file $jks_file
-  fi
   cp $upload/tomcat.properties tomcat.properties
-
+  fi
+  
   # Build the file
   cd ..
   sudo docker build -t wowza_engine:$engine_version -f wowza/Dockerfile .
