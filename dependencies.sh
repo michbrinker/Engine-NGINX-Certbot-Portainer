@@ -38,4 +38,8 @@ install_unzip() {
   sudo apt install -y unzip > /dev/null 2>&1
   fi
 }
+
+install_docker
+install_jq
+install_unzip
 }
