@@ -17,7 +17,7 @@ create_html_instructions() {
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WSE SWAG Portainer in Docker</title>
+  <title>WSE Nginx Portainer in Docker</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -64,7 +64,7 @@ create_html_instructions() {
 </head>
 <body>
   <header>
-    <h1>Wowza Streaming Engine, SWAG and Portainer in Docker</h1>
+    <h1>Wowza Streaming Engine, Nginx and Portainer in Docker</h1>
   </header>
   <div class="container">
     <div class="section">
@@ -72,36 +72,23 @@ create_html_instructions() {
       <img src="https://www.wowza.com/wp-content/uploads/Wowza-logo-transparent.png" alt="Wowza Logo" class="logo">
       <p>Access the Wowza Streaming Engine Manager at: <a href="https://$jks_domain:8090" target="_blank">https://$jks_domain:8090</a></p>
       <p>Access the Swagger UI for REST API at: <a href="http://$public_ip/swagger/" target="_blank">http://$public_ip/swagger</a></p>
-      <p>To manage the Engine files, use the following symlinks in the <strong>$container_dir</strong> directory:</p>
-      <ul>
-        <li>Engine_lib</li>
-        <li>Engine_conf</li>
-        <li>Engine_transcoder</li>
-        <li>Engine_manager</li>
-      </ul>
-      <p>Use the commands below to edit files directly, copy files in and out of the container:</p>
-      <ul>
-        <li>Edit files directly: <code>sudo nano Engine_xxxx/[file_name]</code></li>
-        <li>Copy files out: <code>sudo cp Engine_xxxx/[file_name] [file_name]</code></li>
-        <li>Copy files in: <code>sudo cp [file_name] Engine_xxxx/[file_name]</code></li>
-      </ul>
-      <p>You can also access the logs and content directories directly in <code>$container_dir</code></p.
+      <p>To manage the Engine files, navigate to <strong>$container_dir/WowzaStreamingEngine</strong> directory:</p>
 
       <p>NOTE: Container must be restarted for changes to take effect: <code>cd $container_dir && sudo docker restart $container_name && cd $SCRIPT_DIR</code></p>
-      <p>To restart other containders, use ${container_name}_swag or ${container_name}_portainer in the same command</p>
-      <p>To manage the state of the docker containers, use the following commands:</p>
+      <p>To restart other containders, use ${container_name}_nginx or ${container_name}_portainer or ${container_name}_certbot in the same command</p>
+      
+      <p>To manage the state of the docker stack, use the following commands:</p>
       <ul>
-        <li>Stop and destroy the Docker Wowza, swag and portainer container stack: <code>cd $container_dir && sudo docker compose down --rmi 'all' && cd $SCRIPT_DIR</code></li>
+        <li>Stop and destroy the whole container stack: <code>cd $container_dir && sudo docker compose down --rmi 'all' && cd $SCRIPT_DIR</code></li>
         <li>Stop the container stack without destroying it: <code>cd $container_dir && sudo docker compose stop && cd $SCRIPT_DIR</code></li>
         <li>Start the container stack after stopping it: <code>cd $container_dir && sudo docker compose start && cd $SCRIPT_DIR</code></li>
         <li>Restart the container stack: <code>cd $container_dir && sudo docker compose restart && cd $SCRIPT_DIR</code></li>
       </ul>
-      <p>To delete volumes, use the following command:</p>
+      <p>To delete all unused volumes, use the following command:</p>
       <ul>
-        <li><code>sudo docker volume ls</code></li>
-        <li><code>sudo docker volume rm "volume name"</code></li>
+        <li><code>sudo docker volume prune</code></li>
       </ul>
-      <p>To access the container directly, type: 
+      <p>To access the container directly via command line, type: 
       <ul>
         <li><code>sudo docker exec -it $container_name bash</code></li>
       </ul>
@@ -132,7 +119,7 @@ EOL
 <!DOCTYPE html>
 <html>
 <head>
-  <title>WSE SWAG Portainer in Docker</title>
+  <title>WSE Nginx Portainer in Docker</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -179,7 +166,7 @@ EOL
 </head>
 <body>
   <header>
-    <h1>Wowza Streaming Engine, SWAG and Portainer in Docker</h1>
+    <h1>Wowza Streaming Engine, Nginx and Portainer in Docker</h1>
   </header>
   <div class="container">
     <div class="section">
@@ -187,40 +174,25 @@ EOL
       <img src="https://www.wowza.com/wp-content/uploads/Wowza-logo-transparent.png" alt="Wowza Logo" class="logo">
       <p>Access the Wowza Streaming Engine Manager at: <a href="http://$public_ip:8088" target="_blank">http://$public_ip:8088</a></p>
       <p>Access the Swagger UI for REST API at: <a href="http://$public_ip/swagger/" target="_blank">http://$public_ip/swagger</a></p>
-      <p>To manage the Engine files, use the following symlinks in the <strong>$container_dir</strong> directory:</p>
-      <ul>
-        <li>Engine_lib</li>
-        <li>Engine_conf</li>
-        <li>Engine_transcoder</li>
-        <li>Engine_manager</li>
-      </ul>
-      <p>Use the commands below to edit files directly, copy files in and out of the container:</p>
-      <ul>
-        <li>Edit files directly: <code>sudo nano Engine_xxxx/[file_name]</code></li>
-        <li>Copy files out: <code>sudo cp Engine_xxxx/[file_name] [file_name]</code></li>
-        <li>Copy files in: <code>sudo cp [file_name] Engine_xxxx/[file_name]</code></li>
-      </ul>
+      <p>To manage the Engine files, navigate to <strong>$container_dir/WowzaStreamingEngine</strong> directory:</p>
+
       <p>NOTE: Container must be restarted for changes to take effect: <code>cd $container_dir && sudo docker restart $container_name && cd $SCRIPT_DIR</code></p>
-      <p>To restart other containders, use ${container_name}_swag or ${container_name}_portainer in the same command</p>
-      <p>To manage the state of the docker containers, use the following commands:</p>
+      <p>To restart other containders, use ${container_name}_nginx or ${container_name}_portainer or ${container_name}_certbot in the same command</p>
+      
+      <p>To manage the state of the docker stack, use the following commands:</p>
       <ul>
-        <li>Stop and destroy the Docker Wowza, swag and portainer container stack: <code>cd $container_dir && sudo docker compose down --rmi 'all' && cd $SCRIPT_DIR</code></li>
+        <li>Stop and destroy the whole container stack: <code>cd $container_dir && sudo docker compose down --rmi 'all' && cd $SCRIPT_DIR</code></li>
         <li>Stop the container stack without destroying it: <code>cd $container_dir && sudo docker compose stop && cd $SCRIPT_DIR</code></li>
         <li>Start the container stack after stopping it: <code>cd $container_dir && sudo docker compose start && cd $SCRIPT_DIR</code></li>
         <li>Restart the container stack: <code>cd $container_dir && sudo docker compose restart && cd $SCRIPT_DIR</code></li>
       </ul>
-      <p>To delete volumes, use the following command:</p>
+      <p>To delete all unused volumes, use the following command:</p>
       <ul>
-        <li><code>sudo docker volume ls</code></li>
-        <li><code>sudo docker volume rm "volume name"</code></li>
+        <li><code>sudo docker volume prune</code></li>
       </ul>
-      <p>To access the container directly, type:
+      <p>To access the container directly via command line, type: 
       <ul>
         <li><code>sudo docker exec -it $container_name bash</code></li>
-      </ul>
-      <p>To nuke the whole thing and start over, use the following commands:</p>
-      <ul>
-        <li>sudo docker system prune</li>
       </ul>
     </div>
 
