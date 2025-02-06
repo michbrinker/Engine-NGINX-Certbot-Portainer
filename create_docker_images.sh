@@ -71,15 +71,14 @@ RUN ./tuning.sh
 RUN rm tuning.sh
 
 EOL
-
-  if $use_ssl; then
-    # Copy JKS and tomact to Engine image
-    if ! $duckdns && $use_ssl; then
+  # Copy JKS and tomact to Engine image
+  if ! $duckdns && $use_ssl; then
     cp $upload/$jks_file $jks_file
-      if $use_ssl; then
+    if $use_ssl; then
       cp $upload/tomcat.properties tomcat.properties
-      fi
     fi
+  fi
+  if $use_ssl; then
     echo "COPY wowza/tomcat.properties /usr/local/WowzaStreamingEngine/manager/conf/" >> Dockerfile
     echo "RUN chown wowza:wowza /usr/local/WowzaStreamingEngine/manager/conf/tomcat.properties" >> Dockerfile
     if ! $duckdns && $use_ssl; then
