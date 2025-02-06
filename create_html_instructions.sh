@@ -79,14 +79,30 @@ create_html_instructions() {
       
       <p>To manage the state of the docker stack, use the following commands:</p>
       <ul>
-        <li>Stop and destroy the whole container stack: <code>cd $container_dir && sudo docker compose down --rmi 'all' && cd $SCRIPT_DIR</code></li>
-        <li>Stop the container stack without destroying it: <code>cd $container_dir && sudo docker compose stop && cd $SCRIPT_DIR</code></li>
-        <li>Start the container stack after stopping it: <code>cd $container_dir && sudo docker compose start && cd $SCRIPT_DIR</code></li>
-        <li>Restart the container stack: <code>cd $container_dir && sudo docker compose restart && cd $SCRIPT_DIR</code></li>
+        <li>Stop and destroy the whole container stack:</li>
+        <ul>
+        <li><code>cd $container_dir && sudo docker compose down --rmi 'all' && cd $SCRIPT_DIR</code></li>
+        </ul>
+        <li>Stop the container stack without destroying it: </li>
+        <ul>
+        <li><code>cd $container_dir && sudo docker compose stop && cd $SCRIPT_DIR</code></li>
+        </ul>
+        <li>Start the container stack after stopping it: </li>
+        <ul>
+        <li><code>cd $container_dir && sudo docker compose start && cd $SCRIPT_DIR</code></li>
+        </ul>
+        <li>Restart the container stack:</li>
+        <ul>
+        <li><code>cd $container_dir && sudo docker compose restart && cd $SCRIPT_DIR</code></li>
+        </ul>
       </ul>
       <p>To delete all unused volumes, use the following command:</p>
       <ul>
         <li><code>sudo docker volume prune</code></li>
+      </ul>
+      <p>To delete all unused containers, use the following command:</p>
+      <ul>
+        <li><code>sudo docker system prune</code></li>
       </ul>
       <p>To access the container directly via command line, type: 
       <ul>
@@ -181,14 +197,30 @@ EOL
       
       <p>To manage the state of the docker stack, use the following commands:</p>
       <ul>
-        <li>Stop and destroy the whole container stack: <code>cd $container_dir && sudo docker compose down --rmi 'all' && cd $SCRIPT_DIR</code></li>
-        <li>Stop the container stack without destroying it: <code>cd $container_dir && sudo docker compose stop && cd $SCRIPT_DIR</code></li>
-        <li>Start the container stack after stopping it: <code>cd $container_dir && sudo docker compose start && cd $SCRIPT_DIR</code></li>
-        <li>Restart the container stack: <code>cd $container_dir && sudo docker compose restart && cd $SCRIPT_DIR</code></li>
+        <li>Stop and destroy the whole container stack:</li>
+        <ul>
+        <li><code>cd $container_dir && sudo docker compose down --rmi 'all' && cd $SCRIPT_DIR</code></li>
+        </ul>
+        <li>Stop the container stack without destroying it: </li>
+        <ul>
+        <li><code>cd $container_dir && sudo docker compose stop && cd $SCRIPT_DIR</code></li>
+        </ul>
+        <li>Start the container stack after stopping it: </li>
+        <ul>
+        <li><code>cd $container_dir && sudo docker compose start && cd $SCRIPT_DIR</code></li>
+        </ul>
+        <li>Restart the container stack:</li>
+        <ul>
+        <li><code>cd $container_dir && sudo docker compose restart && cd $SCRIPT_DIR</code></li>
+        </ul>
       </ul>
       <p>To delete all unused volumes, use the following command:</p>
       <ul>
         <li><code>sudo docker volume prune</code></li>
+      </ul>
+      <p>To delete all unused containers, use the following command:</p>
+      <ul>
+        <li><code>sudo docker system prune</code></li>
       </ul>
       <p>To access the container directly via command line, type: 
       <ul>
