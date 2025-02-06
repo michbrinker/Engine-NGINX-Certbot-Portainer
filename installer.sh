@@ -95,18 +95,13 @@ credentials
 stop_previous_docker
 compose
 
-# Create symlinks for Engine directories
-sudo ln -sf /var/lib/docker/volumes/${stack_name}_engine/_data/conf/ $container_dir/Engine_conf
-sudo ln -sf /var/lib/docker/volumes/${stack_name}_engine/_data/transcoder/ $container_dir/Engine_transcoder
-sudo ln -sf /var/lib/docker/volumes/${stack_name}_engine/_data/manager/ $container_dir/Engine_manager
-sudo ln -sf /var/lib/docker/volumes/${stack_name}_engine/_data/lib /$container_dir/Engine_lib
-
 if $duckdns && $use_ssl; then
   convert_pem_to_jks "$jks_duckdns_domain" "$jks_password" "$jks_password"
 fi
 
 swagger
 cleanup
+mount_engine_conf
 create_html_instructions
 
 if $use_ssl; then
