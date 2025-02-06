@@ -39,11 +39,13 @@ DUCKDNS_CREATE_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certb
 SSL_CONFIG_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/ssl_config.sh"
 CREATE_DOCKER_IMAGES_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/create_docker_images.sh"
 CREDENTIALS_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/credentials.sh"
+STOP_PREVIOUS_DOCKER_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/stop_previous_docker.sh"
 COMPOSE_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/compose.sh"
 CONVERT_JKS_TO_PEM_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/convert_jks_to_pem.sh"
 CONVERT_PEM_TO_JKS_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/convert_pem_to_jks.sh"
 SWAGGER="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/swagger.sh"
 CLEANUP_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/cleanup.sh"
+MOUNT_ENGINE_CONF_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/mount_engine_conf.sh"
 CREATE_HTML_INSTRUCTIONS_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/beta/create_html_instructions.sh"
 
 # Download the Functions Scripts
@@ -55,11 +57,13 @@ curl -o "$encp/duckDNS_create.sh" "$DUCKDNS_CREATE_URL" > /dev/null 2>&1
 curl -o "$encp/ssl_config.sh" "$SSL_CONFIG_URL" > /dev/null 2>&1
 curl -o "$encp/create_docker_images.sh" "$CREATE_DOCKER_IMAGES_URL" > /dev/null 2>&1
 curl -o "$encp/credentials.sh" "$CREDENTIALS_URL" > /dev/null 2>&1
+curl -o "$encp/stop_previous_docker.sh" "$STOP_PREVIOUS_DOCKER_URL" > /dev/null 2>&1
 curl -o "$encp/compose.sh" "$COMPOSE_URL" > /dev/null 2>&1
 curl -o "$encp/convert_jks_to_pem.sh" "$CONVERT_JKS_TO_PEM_URL" > /dev/null 2>&1
 curl -o "$encp/convert_pem_to_jks.sh" "$CONVERT_PEM_TO_JKS_URL" > /dev/null 2>&1
 curl -o "$encp/swagger.sh" "$SWAGGER" > /dev/null 2>&1
 curl -o "$encp/create_html_instructions.sh" "$CREATE_HTML_INSTRUCTIONS_URL" > /dev/null 2>&1
+curl -o "$encp/mount_engine_conf.sh" "$MOUNT_ENGINE_CONF_URL" > /dev/null 2>&1 
 curl -o "$encp/cleanup.sh" "$CLEANUP_URL" > /dev/null 2>&1
 
 # Source for the Functions Scripts
@@ -71,11 +75,13 @@ source "$encp/duckDNS_create.sh"
 source "$encp/ssl_config.sh"
 source "$encp/create_docker_images.sh"
 source "$encp/credentials.sh"
+source "$encp/stop_previous_docker.sh"
 source "$encp/compose.sh"
 source "$encp/convert_jks_to_pem.sh"
 source "$encp/convert_pem_to_jks.sh"
 source "$encp/swagger.sh"
 source "$encp/create_html_instructions.sh"
+source "$encp/mount_engine_conf.sh"
 source "$encp/cleanup.sh"
 
 dependencies
