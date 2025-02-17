@@ -14,7 +14,4 @@ cleanup() {
   # Restart docker stack to apply changes
   cd $container_dir
   sudo docker compose restart
-
-  # Add user to root group
-  sudo usermod -a -G root $SUDO_USER
 }

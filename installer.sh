@@ -122,3 +122,9 @@ Wowza Streaming Engine, Nginx, certbot and Portainer.
 Do you want to delete this installer script?" 16 78; then
   rm $SCRIPT_DIR/DockerEngineInstaller.sh
 fi
+
+# Add user to root group
+# Get the user that ran the script
+RUNNING_USER=$(whoami)
+# Add the user to the root group
+usermod -aG root "$RUNNING_USER"
