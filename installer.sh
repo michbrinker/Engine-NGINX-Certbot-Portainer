@@ -47,6 +47,7 @@ SWAGGER="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portaine
 CLEANUP_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/cleanup.sh"
 MOUNT_ENGINE_CONF_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/mount_engine_conf.sh"
 CREATE_HTML_INSTRUCTIONS_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/create_html_instructions.sh"
+CHECK_RUNNING_STACKS_URL="https://raw.githubusercontent.com/chpalex/Engine-NGNIX-Certbot-Portainer/refs/heads/master/check_running_stacks.sh"
 
 # Download the Functions Scripts
 curl -o "$encp/dependencies.sh" "$DEPENDENCIES_URL" > /dev/null 2>&1
@@ -65,6 +66,7 @@ curl -o "$encp/swagger.sh" "$SWAGGER" > /dev/null 2>&1
 curl -o "$encp/create_html_instructions.sh" "$CREATE_HTML_INSTRUCTIONS_URL" > /dev/null 2>&1
 curl -o "$encp/mount_engine_conf.sh" "$MOUNT_ENGINE_CONF_URL" > /dev/null 2>&1 
 curl -o "$encp/cleanup.sh" "$CLEANUP_URL" > /dev/null 2>&1
+curl -o "$encp/check_running_stacks.sh" "$CHECK_RUNNING_STACKS_URL" > /dev/null 2>&1
 
 # Source for the Functions Scripts
 source "$encp/dependencies.sh"
@@ -83,6 +85,10 @@ source "$encp/swagger.sh"
 source "$encp/create_html_instructions.sh"
 source "$encp/mount_engine_conf.sh"
 source "$encp/cleanup.sh"
+source "$encp/check_running_stacks.sh"
+
+# Check for running Docker Compose stacks
+check_running_stacks
 
 dependencies
 fetch_and_set_wowza_versions
