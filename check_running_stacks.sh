@@ -29,3 +29,4 @@ check_running_stacks() {
     fi
   fi
   # No else block - function runs silently if no stacks are found
+}
