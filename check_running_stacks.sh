@@ -18,8 +18,8 @@ check_running_stacks() {
         
         if [ -n "$project_dir" ] && [ -d "$project_dir" ]; then
           echo "Stopping Docker Compose project $project in directory $project_dir"
-          # Navigate to the directory and run docker-compose down
-          (cd "$project_dir" && sudo docker-compose down) || echo "Failed to stop project $project"
+          # Navigate to the directory and run docker compose stop
+          (cd "$project_dir" && sudo docker compose stop) || echo "Failed to stop project $project"
         fi
       done
       whiptail --title "Stacks Stopped" --msgbox "The running stacks have been stopped." 10 60
