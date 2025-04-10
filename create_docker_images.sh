@@ -167,7 +167,7 @@ fi
   cd ..
   sudo docker build -t wowza_engine:$engine_version -f wowza/Dockerfile .
 
-# Created dockerfile for NGINX
+# Dockerfile for NGINX
   # Change directory to nginx
   mkdir -p -m 777 "$container_dir/nginx" && cd "$container_dir/nginx"
   # Copy dependency files from github
@@ -186,7 +186,7 @@ fi
   sed -i '7,8 s/^\s*#\s*//' $container_dir/nginx/config/conf.d/default.conf
   fi
     
-    # Create a Dockerfile for WSE
+    # Create a Dockerfile for NGINX
   cat <<EOL > Dockerfile
 FROM alpine:latest
 LABEL Description="Lightweight container with Nginx 1.26 & PHP 8.4 based on Alpine Linux."
