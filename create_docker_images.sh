@@ -52,19 +52,19 @@ sed -i "s|<TransportThreadPool>.*</TransportThreadPool>|<TransportThreadPool><Po
 
 # Configure Demo live stream
 sed -i "/<\/ServerListeners>/i \
-          <ServerListener>\
-            <BaseClass>com.wowza.wms.module.ServerListenerStreamDemoPublisher</BaseClass>\
-          </ServerListener>" "/usr/local/WowzaStreamingEngine/conf/Server.xml"
+<ServerListener>\n\
+  <BaseClass>com.wowza.wms.module.ServerListenerStreamDemoPublisher</BaseClass>\n\
+</ServerListener>" "/usr/local/WowzaStreamingEngine/conf/Server.xml"
 
 # Find the line number of the closing </Properties> tag directly above the closing </Server> tag
 line_number=\$(sed -n '/<\/Properties>/=' "/usr/local/WowzaStreamingEngine/conf/Server.xml" | tail -1)
 
 # Insert the new property at the found line number
 if [ -n "\$line_number" ]; then
-  sed -i "\${line_number}i <Property>\
-<Name>streamDemoPublisherConfig</Name>\
-<Value>appName=live,srcStream=sample.mp4,dstStream=myStream,sendOnMetadata=true</Value>\
-<Type>String</Type>\
+  sed -i "\${line_number}i <Property>\n\
+<Name>streamDemoPublisherConfig</Name>\n\
+<Value>appName=live,srcStream=sample.mp4,dstStream=myStream,sendOnMetadata=true</Value>\n\
+<Type>String</Type>\n\
 </Property>" "/usr/local/WowzaStreamingEngine/conf/Server.xml"
 fi
 
