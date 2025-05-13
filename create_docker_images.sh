@@ -147,6 +147,7 @@ EOL
     </HostPort>' /usr/local/WowzaStreamingEngine/conf/VHost.xml" >> Dockerfile
 
     # Edit the VHost.xml file to include the new TestPlayer block with the jks_domain
+    echo "RUN sed -i '/<TestPlayer>/,/<\/TestPlayer>/d' /usr/local/WowzaStreamingEngine/conf/VHost.xml" >> Dockerfile
     echo "RUN sed -i '/<\/Manager>/i \
     <TestPlayer>\n\
         <IpAddress>${jks_domain}</IpAddress>\n\
