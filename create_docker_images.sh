@@ -81,7 +81,6 @@ EOL
 
   if $use_ssl; then
     echo "COPY wowza/tomcat.properties /usr/local/WowzaStreamingEngine/manager/conf/" >> Dockerfile
-    echo "RUN chown wowza:wowza /usr/local/WowzaStreamingEngine/manager/conf/tomcat.properties" >> Dockerfile
     if ! $duckdns && $use_ssl; then
       echo "COPY wowza/$jks_file /usr/local/WowzaStreamingEngine/conf/$jks_file" >> Dockerfile
     fi
