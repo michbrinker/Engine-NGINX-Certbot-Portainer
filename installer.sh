@@ -113,9 +113,8 @@ fi
 swagger
 cleanup
 create_html_instructions
-# adding a sleep here to resolve 4.9.5 issue with mount_engine_conf copying and removing the image too early
-sleep 5
-mount_engine_conf
+# Disabling the mount_engine_conf function for now to test
+# mount_engine_conf
 
 if $use_ssl; then
 echo -e "${w}For instructions on using the installed software, please visit ${yellow}https://$jks_domain:444/instructions.html${NOCOLOR}"
