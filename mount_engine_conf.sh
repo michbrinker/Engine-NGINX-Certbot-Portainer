@@ -20,6 +20,8 @@ sed -i 's|- engine:/usr/local/WowzaStreamingEngine|- ./WowzaStreamingEngine:/usr
 # Remove the engine volume definition
 sed -i '/^  engine:/,/^    driver: local$/d' docker-compose.yml
 
-# Rebuild docker compose stack
-sudo docker compose down && sudo docker compose up -d
+  # Rebuild docker compose stack
+  sudo docker compose down && sudo docker compose up -d
+  
+  echo "Wowza configuration mounted successfully"
 }
