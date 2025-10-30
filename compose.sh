@@ -60,7 +60,6 @@ services:
     image: docker.io/library/wowza_engine:${engine_version}
     restart: always
     ports:
-      - "1234:1234/udp"
       - "6970-7000:6970-7000/udp"
       - "443:443"
       - "1935:1935"
@@ -70,6 +69,13 @@ services:
       - engine:/usr/local/WowzaStreamingEngine
       - $container_dir/certbot/letsencrypt:/usr/local/WowzaStreamingEngine/conf/ssl
       - $container_dir/nginx/www:/usr/local/WowzaStreamingEngine/www
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
     entrypoint: /sbin/entrypoint.sh
     env_file: 
       - ./.env
